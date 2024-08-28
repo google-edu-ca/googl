@@ -146,6 +146,7 @@
         let payments = null;
         let initGame = false;
         let nowFullAdOpen = false;
+        let FullAdShow = false;
 
         const script = document.createElement("script");
         script.src = loaderUrl;
@@ -166,10 +167,6 @@
                 StartUnityInstance_IfUnloaded();
         };
 
-        function StartUnityInstance_IfUnloaded() {
-            if (spinner.style.display !== "none")
-                StartUnityInstance();
-        }
 
         function LocalHost() {
             var host = window.location.hostname;
@@ -204,13 +201,6 @@ console.log('Init Player ysdk');
 flasgsData = await GetFlags();
 console.log('Init Flags ysdk');
 
-
-            } catch (e) {
-                console.error('CRASH Initialization SDK: ', e);
-            }
-
-            StartUnityInstance_IfUnloaded();
-        }
 
         function InitGame() {
             console.log('Init Game Success');
